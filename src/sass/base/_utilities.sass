@@ -1,0 +1,39 @@
+@use "../abstracts/mixins"
+
+.margin-bottom-m
+  margin-bottom: 4rem
+.margin-bottom-l
+  margin-bottom: 6rem
+.margin-bottom-xl
+  margin-bottom: 10rem
+.margin-bottom-xxl
+  margin-bottom: 13rem
+.margin-bottom-xxxl
+  margin-bottom: 16rem
+
+@include mixins.respond(tab-port)
+  .margin-bottom-m
+    margin-bottom: 2rem
+  .margin-bottom-l
+    margin-bottom: 4rem
+  .margin-bottom-xl
+    margin-bottom: 6rem
+  .margin-bottom-xxl
+    margin-bottom: 10rem
+  .margin-bottom-xxxl
+    margin-bottom: 13rem
+
+@include mixins.respond(phone)
+  .margin-bottom-m
+    margin-bottom: 1rem
+  .margin-bottom-l
+    margin-bottom: 2rem
+  .margin-bottom-xl
+    margin-bottom: 4rem
+  .margin-bottom-xxl
+    margin-bottom: 7rem
+  .margin-bottom-xxxl
+    margin-bottom: 10rem
+
+.text-align-center
+  text-align: center

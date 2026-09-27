@@ -1,0 +1,8 @@
+@use "../abstracts/mixins"
+
+html
+  font-size: 62.5%
+  @include mixins.respond(tab-land)
+    font-size: 50%
+  @include mixins.respond(phone)
+    font-size: 43.75%
