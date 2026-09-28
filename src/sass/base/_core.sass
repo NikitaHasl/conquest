@@ -6,3 +6,11 @@ html
     font-size: 50%
   @include mixins.respond(phone)
     font-size: 43.75%
+
+body
+  @include mixins.font(Roboto, 1.6rem , 400)
+
+.container
+  max-width: 120rem
+  padding: 0 1.5rem
+  margin: 0 auto

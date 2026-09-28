@@ -12,3 +12,16 @@
   @if $breakpoit == big-screen
     @media only screen and (min-width: 1800px)
       @content
+
+@mixin font($name, $size, $weight)
+  font-style: normal
+  font-size: $size
+  @if $name == Roboto
+    font-family: "Roboto", sans-serif
+    font-weight: $weight
+  @else if $name == Prata
+    font-family: "Prata", serif
+    font-weight: 400
+  @else if $name == Playfair
+    font-family: "Playfair Display", serif
+    font-weight: $weight
