@@ -1,1 +1,8 @@
+@use "../abstracts/mixins"
+@use "../abstracts/variables"
 
+.title-1
+  @include mixins.font(Playfair, 4.5rem , 400)
+  color: variables.$color-dark
+  & > span
+    font-size: 3rem

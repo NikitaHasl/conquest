@@ -25,3 +25,11 @@
   @else if $name == Playfair
     font-family: "Playfair Display", serif
     font-weight: $weight
+
+@mixin line($color)
+  content: ""
+  display: block
+  width: 5rem
+  height: .1rem
+  background-color: $color
+  position: absolute

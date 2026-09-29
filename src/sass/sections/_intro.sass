@@ -1,0 +1,53 @@
+@use "../abstracts/mixins"
+@use "../abstracts/variables"
+.section-intro
+  position: relative
+  overflow: hidden
+  &::before
+    content: ""
+    position: absolute
+    top: -8rem
+    left: 50%
+    transform: translateX(-50%)
+    width: 50rem
+    height: 95rem
+    background: linear-gradient(to top, #EAE3D4, transparent)
+    border-radius: 50rem 0 0 50rem
+    z-index: -10
+  &__wrapper
+    display: grid
+    grid-template-columns: 1fr 1fr
+    align-items: center
+  &__text
+    margin-left: 8rem
+    position: relative
+    &::before
+      @include mixins.line(variables.$color-pearl)
+      top: 2.5rem
+      left: -7rem
+  &__image
+    position: relative
+  &__desc
+    font-size: 1.4rem
+    font-weight: 300
+    line-height: 150%
+    max-width: 25rem
+  &__img
+    max-width: 50rem
+  &__characteristic
+    @include mixins.font(Prata, 1.6rem, 400)
+    position: absolute
+    &_1
+      top: 15rem
+      left: -8rem
+      &::after
+        @include mixins.line(variables.$color-pearl)
+        top: calc( 50% - .1rem )
+        right: -6.5rem
+    &_2
+      right: 0
+      bottom: 14rem
+      &::before
+        @include mixins.line(variables.$color-pearl)
+        top: calc( 50% - .1rem )
+        left: -6.5rem
