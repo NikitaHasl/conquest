@@ -26,10 +26,9 @@
     font-family: "Playfair Display", serif
     font-weight: $weight
 
-@mixin line($color)
+@mixin line($color, $width: 1rem)
   content: ""
   display: block
-  width: 5rem
+  width: $width
   height: .1rem
   background-color: $color
-  position: absolute

@@ -22,7 +22,8 @@
     margin-left: 8rem
     position: relative
     &::before
-      @include mixins.line(variables.$color-pearl)
+      @include mixins.line(variables.$color-pearl, 5rem)
+      position: absolute
       top: 2.5rem
       left: -7rem
   &__image
@@ -40,14 +41,16 @@
     &_1
       top: 15rem
       left: -8rem
+      display: flex
+      gap: 1.5rem
+      align-items: center
       &::after
-        @include mixins.line(variables.$color-pearl)
-        top: calc( 50% - .1rem )
-        right: -6.5rem
+        @include mixins.line(variables.$color-pearl, 5rem)
     &_2
       right: 0
       bottom: 14rem
+      display: flex
+      gap: 1.5rem
+      align-items: center
       &::before
-        @include mixins.line(variables.$color-pearl)
-        top: calc( 50% - .1rem )
-        left: -6.5rem
+        @include mixins.line(variables.$color-pearl, 5rem)

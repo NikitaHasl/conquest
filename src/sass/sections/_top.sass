@@ -1,0 +1,66 @@
+@use "../abstracts/variables"
+@use "../abstracts/mixins"
+.section-top
+  padding: 8rem 0
+  &__wrapper
+    position: relative
+  &__link-all
+    position: absolute
+    right: 0
+    top: 4rem
+    font-weight: 500
+    color: variables.$color-gray
+    padding: 1rem 0
+    transition: color .3s
+    &::after
+      content: ""
+      position: absolute
+      bottom: 0
+      display: block
+      width: 100%
+      height: .1rem
+      background-color: variables.$color-pearl
+      z-index: -1
+      transition: all .3s
+    &:hover::after
+      height: 100%
+    &:hover
+      color: variables.$color-white
+  &__cards
+    display: grid
+    grid-template-columns: repeat(auto-fit, minmax(36.5rem, 1fr))
+    justify-items: center
+    gap: 3.5rem
+  &__card
+    padding: 4rem
+    background-color: variables.$color-snow-white
+    max-width: 40rem
+    &-name
+      @include mixins.font(Playfair, 1.4rem, 600)
+      line-height: 170%
+      color: variables.$color-dark-trans
+    &-price
+      @include mixins.font(Prata, 1.2rem, 400)
+      color: variables.$color-dark-trans
+    &-img
+      max-width: 31rem
+      &-shadow
+        width: 31rem
+        height: 31rem
+        box-shadow: .1rem 0 .1rem 0 variables.$color-pearl
+        border-radius: 50%
+        display: flex
+        align-items: center
+        justify-content: center
+        overflow: hidden
+    &-link
+      @include mixins.font(Playfair, 1.6rem, 400)
+      color: variables.$color-dark
+      display: flex
+      gap: 1.5rem
+      align-items: center
+      transition: transform .3s
+      &::before
+        @include mixins.line(variables.$color-pearl, 3rem)
+      &:hover
+        transform: skewX(-5deg)
