@@ -1,0 +1,56 @@
+@use "../abstracts/variables"
+@use "../abstracts/mixins"
+.section-banner
+  padding: 5rem 0
+  background: linear-gradient(to right, #F7F5EF 0%, #F7F5EF 30%, variables.$color-snow-white 30%, variables.$color-snow-white 100%)
+
+  position: relative
+  overflow: hidden
+
+  &::before,
+  &::after
+    content: ""
+    position: absolute
+    border: 0.1rem solid variables.$color-tan
+    border-radius: 50%
+    pointer-events: none
+    z-index: 0
+
+  &::before
+    width: 36rem
+    height: 36rem
+    top: -18rem
+    right: -18rem
+
+  &::after
+    width: 74rem
+    height: 74rem
+    top: 0
+    right: -56rem
+  &__wrapper
+    display: grid
+    grid-template-columns: 1fr .8fr
+    align-items: center
+    gap: 7rem
+  &__image
+    position: relative
+  &__img
+    max-width: 52rem
+    justify-self: right
+  &__pagination
+    display: flex
+    gap: 2rem
+    position: absolute
+    right: 10rem
+    bottom: -3rem
+    & span
+      @include mixins.font(Prata, 1.2rem , 400)
+      user-select: none
+    & img
+      cursor: pointer
+
+  &__text
+    &-description
+      max-width: 37.5rem
+      line-height: 150%
+      color: variables.$color-gray

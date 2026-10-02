@@ -56,11 +56,11 @@
     &-link
       @include mixins.font(Playfair, 1.6rem, 400)
       color: variables.$color-dark
-      display: flex
+      display: inline-flex
       gap: 1.5rem
       align-items: center
       transition: transform .3s
       &::before
         @include mixins.line(variables.$color-pearl, 3rem)
       &:hover
-        transform: skewX(-5deg)
+        transform: translateX(1.5rem)
