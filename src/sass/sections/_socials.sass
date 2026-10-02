@@ -1,0 +1,32 @@
+
+.section-socials
+  padding: 8rem 0
+  &__wrapper
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    align-items: center
+  &__text
+    position: relative
+    & p
+      line-height: 170%
+  &__icons
+    display: flex
+    align-items: center
+    gap: 2rem
+    position: absolute
+    bottom: -12rem
+    left: 0
+  &__icon
+    &:active
+      transform: scale(.9)
+  &__images
+    display: grid
+    grid-template-rows: repeat(2, max-content)
+    grid-auto-flow: column
+    gap: 1rem
+  &__img
+    &_1, &_2
+      max-width: 24rem
+    &_3
+      max-width: 37rem
+      grid-area: 1 / 2 / 3 / 3
