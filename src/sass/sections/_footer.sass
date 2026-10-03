@@ -1,13 +1,28 @@
 @use "../abstracts/variables"
+@use "../abstracts/mixins"
 .footer
   padding: 8rem 0
   background-color: variables.$color-gray
   &__wrapper
-    display: flex
+    display: grid
+    grid-template-columns: repeat(4, max-content)
     justify-content: space-evenly
     gap: 11.5rem
+    @include mixins.respond(tab-port)
+      gap: 2.5rem
+    @include mixins.respond(smal-tab)
+      grid-template-columns: repeat(2, max-content)
+      row-gap: 5rem
+    @include mixins.respond(phone)
+      grid-template-columns: minmax(min-content, max-content)
+      text-align: center
+
   &__logo
     transform: translateY(-.7rem)
+    @include mixins.respond(phone)
+      max-width: 24rem
+      width: 100%
+      justify-self: center
   &__column
     display: flex
     flex-direction: column
@@ -23,3 +38,5 @@
     transition: transform .3s
     &:hover
       transform: translateX(.5rem)
+    @include mixins.respond(phone)
+      font-size: 3.2rem
