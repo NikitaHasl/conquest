@@ -1,14 +1,23 @@
-
+@use "../abstracts/mixins"
 .section-socials
   padding: 8rem 0
   &__wrapper
     display: grid
     grid-template-columns: repeat(2, 1fr)
     align-items: center
+    @include mixins.respond(tab-port)
+      grid-template-columns: 1fr
+      justify-items: center
+      gap: 2rem
   &__text
     position: relative
     & p
       line-height: 170%
+    @include mixins.respond(tab-port)
+      text-align: center
+      display: flex
+      flex-direction: column
+      gap: 1rem
   &__icons
     display: flex
     align-items: center
@@ -16,6 +25,9 @@
     position: absolute
     bottom: -12rem
     left: 0
+    @include mixins.respond(tab-port)
+      position: static
+      justify-content: center
   &__icon
     &:active
       transform: scale(.9)
@@ -24,10 +36,20 @@
     grid-template-rows: repeat(2, max-content)
     grid-auto-flow: column
     gap: 1rem
+    @include mixins.respond(phone)
+      grid-template-columns: 1fr
+      grid-template-rows: auto
+      grid-auto-flow: dense
   &__img
     height: 100%
+    width: 100%
     &_1, &_2
       max-width: 24rem
+      @include mixins.respond(phone)
+        max-width: max-content
     &_3
       max-width: 37rem
       grid-area: 1 / 2 / 3 / 3
+      @include mixins.respond(phone)
+        grid-area: auto
+        max-width: max-content
