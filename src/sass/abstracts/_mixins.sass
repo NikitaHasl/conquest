@@ -3,6 +3,9 @@
   @if $breakpoit == phone
     @media only screen and (max-width: 420px)
       @content
+  @if $breakpoit == smal-tab
+    @media only screen and (max-width: 550px)
+      @content
   @if $breakpoit == tab-port
     @media only screen and (max-width: 870px)
       @content

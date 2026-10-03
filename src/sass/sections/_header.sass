@@ -1,20 +1,48 @@
 @use "../abstracts/variables"
+@use "../abstracts/mixins"
 .header
   padding: 3rem 0
   &__wrapper
     display: flex
     justify-content: space-between
     align-items: center
+    @include mixins.respond(tab-port)
+      justify-content: space-around
+    @include mixins.respond(smal-tab)
+      justify-content: space-evenly
+    @include mixins.respond(phone)
+      justify-content: flex-start
+      gap: 3.5rem
   &__navigation
     &-list
       display: flex
       gap: 6.5rem
+      @include mixins.respond(tab-port)
+        position: fixed
+        top: 0
+        left: 0
+        width: 100vw
+        height: 100dvh
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        gap: 3rem
+        padding: 2rem
+        background-color: variables.$color-pearl
+        transform: translateY(-100%)
+        opacity: 0
+        visibility: hidden
+        transition: all 0.3s ease
+        z-index: 10
     &-link
       position: relative
       &:link,
       &:visited
         font-size: 1.4rem
         color: variables.$color-brownish-gray
+        @include mixins.respond(tab-port)
+          font-size: 3.2rem
+          color: variables.$color-dark-trans
       &::after
         content: ""
         position: absolute
@@ -53,3 +81,41 @@
       line-height: 1.3rem
       text-align: center
       border-radius: 50%
+  &__burger
+    display: none
+    flex-direction: column
+    justify-content: space-between
+    width: 3rem
+    height: 2rem
+    cursor: pointer
+    z-index: 10
+    @include mixins.respond(tab-port)
+      display: flex
+      position: fixed
+      top: 3.5rem
+      right: 2rem
+      z-index: 10
+    &-toggle
+      position: absolute
+      opacity: 0
+      pointer-events: none
+    & span
+      display: block
+      width: 100%
+      height: 0.2rem
+      background-color: variables.$color-dark
+      border-radius: 0.2rem
+      transition: all 0.3s ease
+
+  &__burger-toggle:checked
+    ~ .header__navigation .header__navigation-list
+      transform: translateY(0)
+      opacity: 1
+      visibility: visible
+    ~ .header__burger
+      span:nth-child(1)
+        transform: translateY(0.9rem) rotate(45deg)
+      span:nth-child(2)
+        opacity: 0
+      span:nth-child(3)
+        transform: translateY(-0.9rem) rotate(-45deg)
