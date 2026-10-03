@@ -6,6 +6,7 @@
     position: relative
   &__link-all
     position: absolute
+    display: inline-block
     right: 0
     top: 4rem
     font-weight: 500
@@ -26,15 +27,21 @@
       height: 100%
     &:hover
       color: variables.$color-white
+    @include mixins.respond(tab-port)
+      bottom: -6rem
+      top: auto
+      right: auto
+      left: 50%
+      transform: translateX(-50%)
+
   &__cards
     display: grid
-    grid-template-columns: repeat(auto-fit, minmax(36.5rem, 1fr))
+    grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr))
     justify-items: center
     gap: 3.5rem
   &__card
     padding: 4rem
     background-color: variables.$color-snow-white
-    max-width: 40rem
     &-name
       @include mixins.font(Playfair, 1.4rem, 600)
       line-height: 170%
@@ -45,8 +52,8 @@
     &-img
       max-width: 31rem
       &-shadow
-        width: 31rem
-        height: 31rem
+        max-width: 31rem
+        max-height: 31rem
         box-shadow: .1rem 0 .1rem 0 variables.$color-pearl
         border-radius: 50%
         display: flex
