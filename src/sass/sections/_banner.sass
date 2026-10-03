@@ -11,10 +11,12 @@
   &::after
     content: ""
     position: absolute
-    border: 0.1rem solid variables.$color-tan
+    border: 0.1rem solid variables.$color-tan-trans
     border-radius: 50%
     pointer-events: none
     z-index: 0
+    @include mixins.respond(smal-tab)
+      display: none
 
   &::before
     width: 36rem
@@ -32,17 +34,33 @@
     grid-template-columns: 1fr .8fr
     align-items: center
     gap: 7rem
+    @include mixins.respond(tab-port)
+      gap: 2rem
+      grid-template-columns: .8fr 1fr
+    @include mixins.respond(smal-tab)
+      grid-template-columns: 1fr
+      gap: 4rem
+      align-items: center
+      justify-items: center
   &__image
     position: relative
   &__img
     max-width: 52rem
     justify-self: right
+    @include mixins.respond(tab-port)
+      max-width: 40rem
+    @include mixins.respond(smal-tab)
+      max-width: 100%
   &__pagination
     display: flex
     gap: 2rem
     position: absolute
     right: 10rem
     bottom: -3rem
+    @include mixins.respond(smal-tab)
+      right: auto
+      left: 50%
+      transform: translateX(-50%)
     & span
       @include mixins.font(Prata, 1.2rem , 400)
       user-select: none
@@ -54,3 +72,5 @@
       max-width: 37.5rem
       line-height: 150%
       color: variables.$color-gray
+  @include mixins.respond(smal-tab)
+    text-align: center
