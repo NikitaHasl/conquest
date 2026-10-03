@@ -1,0 +1,25 @@
+@use "../abstracts/variables"
+.footer
+  padding: 8rem 0
+  background-color: variables.$color-gray
+  &__wrapper
+    display: flex
+    justify-content: space-evenly
+    gap: 11.5rem
+  &__logo
+    transform: translateY(-.7rem)
+  &__column
+    display: flex
+    flex-direction: column
+    gap: 3rem
+  &__list
+    display: flex
+    flex-direction: column
+    gap: 1.5rem
+  &__link
+    display: inline-block
+    font-size: 1.2rem
+    color: variables.$color-white
+    transition: transform .3s
+    &:hover
+      transform: translateX(.5rem)
